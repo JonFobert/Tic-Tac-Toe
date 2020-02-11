@@ -14,3 +14,7 @@ def askWhereToPlayNext():
 
 def askToTryAgain():
     print("Sorry, Already Taken!\n Try again: ")
+
+
+def printVictoryMessage():
+    print("you Win!")
