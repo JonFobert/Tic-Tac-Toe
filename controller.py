@@ -9,8 +9,9 @@ while 1 < 2:
     # if (model.computeNextTurn(playPos)="acceptable")
     if model.computeNextTurn(playPos) == "marked":
         view.printBoard(model.GameState.theBoard)
-        # if(model.victory):
-        #   view.printVictoryMessage()
+        if(model.GameState.winner):
+            view.printWinnerMessage(model.GameState.winner)
+            break
         view.askWhereToPlayNext()
     else:
         view.askToTryAgain()
