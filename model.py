@@ -23,7 +23,7 @@ def computeIfWinner():
         (boardList[2], boardList[5], boardList[8]) == ("O", "O", "O") or
         (boardList[0], boardList[4], boardList[8]) == ("O", "O", "O") or
             (boardList[6], boardList[4], boardList[2]) == ("O", "O", "O")):
-        GameState.winner = "X"
+        return "X"
     elif ((boardList[0], boardList[1], boardList[2]) == ("X", "X", "X") or
           (boardList[3], boardList[4], boardList[5]) == ("X", "X", "X") or
           (boardList[6], boardList[7], boardList[8]) == ("X", "X", "X") or
@@ -32,11 +32,11 @@ def computeIfWinner():
           (boardList[2], boardList[5], boardList[8]) == ("X", "X", "X") or
           (boardList[0], boardList[4], boardList[8]) == ("X", "X", "X") or
           (boardList[6], boardList[4], boardList[2]) == ("X", "X", "X")):
-        GameState.winner = "O"
+        return "O"
     elif " " not in boardList:
-        GameState.winner = "draw"
+        return "draw"
     else:
-        return "no winner yet"
+        return ""
 
 
 def computeNextTurn(posInput):
@@ -46,7 +46,7 @@ def computeNextTurn(posInput):
         else:
             GameState.theBoard[posInput] = 'O'
         GameState.playerXTurn = not GameState.playerXTurn
-        computeIfWinner()
+        GameState.winner = computeIfWinner()
         return "marked"
     else:
         return

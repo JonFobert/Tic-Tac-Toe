@@ -4,10 +4,11 @@ import view
 view.printBoard(model.GameState.theBoard)
 view.askWhereToPlayNext()
 
+
+# Consider getting rid of GameState. "function as a black box"
 while 1 < 2:
-    playPos = input()
-    # if (model.computeNextTurn(playPos)="acceptable")
-    if model.computeNextTurn(playPos) == "marked":
+    playedPos = input()
+    if model.computeNextTurn(playedPos) == "marked":
         view.printBoard(model.GameState.theBoard)
         if(model.GameState.winner):
             view.printWinnerMessage(model.GameState.winner)
